@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <title>
+      second webpage
+    </title>
+	
+  <body>
+    <button onclick="change()">replace</button>
+    <button onclick="revert()">revert</button><br>
+	<img id="pic" src="orig.PNG">
+    
+    <script>
+      function change() {
+        document.getElementById("pic").src = "new.PNG";
+      }
+
+      function revert() {
+        document.getElementById("pic").src = "orig.PNG";
+      }
+    </script>
+	
+  </body>
+</html>
