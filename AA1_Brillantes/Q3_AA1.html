@@ -98,21 +98,21 @@
 			document.getElementById("playerName").innerHTML = playerName.toUpperCase();
 			
 			function rock(){
-				document.getElementById("playerChoice").src = "0.PNG";
+				document.getElementById("playerChoice").src = "0.png";
 				randomComputer();
 				player = 0;
 				checkWinner();
 			}
 			
 			function paper(){
-				document.getElementById("playerChoice").src = "1.PNG";
+				document.getElementById("playerChoice").src = "1.png";
 				randomComputer();
 				player = 1;
 				checkWinner();
 			}
 			
 			function scissor(){
-				document.getElementById("playerChoice").src = "2.PNG"; 
+				document.getElementById("playerChoice").src = "2.png"; 
 				randomComputer();
 				player = 2;
 				checkWinner();
@@ -122,14 +122,14 @@
 				random = Math.floor(Math.random() * 3);
 				
 				if(random == 0){
-					document.getElementById("computerChoice").src = "0.PNG";
+					document.getElementById("computerChoice").src = "0.png";
 					
 				}	
 				else if(random == 1){
-					document.getElementById("computerChoice").src = "1.PNG";	
+					document.getElementById("computerChoice").src = "1.png";	
 				}
 				else {
-					document.getElementById("computerChoice").src = "2.PNG";
+					document.getElementById("computerChoice").src = "2.png";
 				}
 			}
 			
