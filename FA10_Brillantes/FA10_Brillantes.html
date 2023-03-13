@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FA10_Brillantes</title>
+	</head>
+	
+	<body>
+		<h1>Generating random numbers</h1>
+		<p id=randomNumber></p>
+		<p id=breakdown></p>
+	
+			<script>
+				var generatedNumber = Math.floor(Math.random()*1001);
+				document.getElementById('randomNumber').innerHTML = "Randomly generated number: " + generatedNumber;
+	
+				var hundreds = Math.floor((generatedNumber%1000)/100)*100;
+				var tens = Math.floor((generatedNumber%100)/10)*10;
+				var ones = Math.floor((generatedNumber%10));
+				document.getElementById('breakdown').innerHTML = "Breakdown:  " + hundreds + " " + tens + " " + ones;
+			</script>
+	</body>
+</html>
+
