@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> My Online Shop</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<style>
+		  span {color: blue; text-decoration:underline}
+		  button {width: 100px; padding: 5px; background: pink;}
+		</style>
+	</head>
+	
+	<body>
+		<h1> Welcome to kate spade ! </h1>
+		<h2> Please select from the following items </h2>
+		<ol>
+			<li> item#1 handbag price:Php5000.00 </li>
+			<li> item#2 wallet: price:Php2500.00 </li>
+			<li> item#3 purse price: Php3000.00 </li>
+		</ol>
+		<!-- the following will be used to display purchase information -->
+		<p> Item selected : <span id="item"> </span> </p>
+		<p> Qty bought : <span id="qty"> </span> </p>
+		<p> Amount to pay for the item: <span id="bill"> </span> </p>
+		<p> Current Total Bill <span id="tbill"> </span> </p>
+		<button onclick="buyAnItem()"> Buy an Item </button>
+		<button onclick="clearAnItem()"> Clear </button>
+		
+		<script>
+			//function buyAnItem is for getting the input of the user 
+			function buyAnItem(){
+				var x = prompt("Welcome! Type in the item number: ", "");
+				var y = prompt("Quantity: ", "");
+			  
+				//In order to verify if y is an integer, we will use Number.isInteger and parseInt
+				if (Number.isInteger(parseInt(y))) {
+					console.log("User input is an integer.");
+					
+					//If it validated y, it will print the item#, quantity, price, and the total bill
+					document.getElementById("item").innerHTML = "Item#" + x;
+					document.getElementById("qty").innerHTML = y;
+					
+					//this is to compute the total bill of the user
+					if (x = 1){
+						document.getElementById("bill").innerHTML = "Php5000.00";
+						document.getElementById("tbill").innerHTML = ("Php" + (5000 * y));
+					}
+					else if (x = 2){
+						document.getElementById("bill").innerHTML = "Php2500.00";
+						document.getElementById("tbill").innerHTML = ("Php" + (2500 * y));
+					}
+					else{
+						document.getElementById("till").innerHTML = "Php3000.00";
+						document.getElementById("tbill").innerHTML = ("Php" + (3000 * y));
+					}
+				} 
+				
+				/*if the user inputted a non-integer value in the prompt, 
+				it will alert that its input is invalid*/
+				else {
+					alert("User input is invalid.");
+				}
+				
+			}
+			//function clearAnItem() is called whenever the user want to clear the inputted values
+			function clearAnItem (){
+				document.getElementById("item").innerHTML = " ";
+				document.getElementById("qty").innerHTML = " ";
+				document.getElementById("bill").innerHTML = " ";
+				document.getElementById("tbill").innerHTML = " ";
+			}
+			
+		
+		</script>
+	</body>
+
+</html>
+

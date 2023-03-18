@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>One Time Password</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				background: lightblue;
+				text-align: center;
+				font-family: arial;
+				color: navy;
+			}
+
+			button {
+				padding: 10px;
+				background: violet;
+			}
+
+			a {
+				font-size: 0.5em;
+				color: maroon;
+			}
+		</style>
+	</head>
+	
+	<body onload="makeOTP()">
+		<h1>Final Verification Step</h1>
+		<h2>Current OTP: <span id="otp">_ _ _ _ _ _</span> <a href="#" onclick="makeOTP()">New OTP</a></h2>
+		<button onclick="verifyOTP()">Enter the OTP as shown above</button>
+
+		<script>
+			/* function makeOTP will generate a one-time password once the page loads. 
+			Also, if the user will press "New OTP", it will also redirect to this function*/
+			function makeOTP() {
+				var digits = '0123456789';
+				var OTP = '';
+				
+				for (var i = 0; i < 6; i++) {
+					OTP += digits[Math.floor(Math.random() * 10)];
+				}
+				document.getElementById('otp').innerText = OTP;
+			}
+
+			/* function verifyOTP will verify if the inputted OTP is correct. 
+			If it is correct, it will redirected to my choice of website*/
+			function verifyOTP() {
+				var userInput = prompt('Enter the OTP:');
+				
+				if (userInput === document.getElementById('otp').innerText) {
+					alert('User input is correct. Redirecting you to youtube.com...');
+					window.location.href = 'https://www.youtube.com/watch?v=IZTGTTMlpAk';
+				} 
+				
+				else {
+					alert('User input is invalid :( Please try again.');
+				}
+			}
+		</script>
+	</body>
+</html>

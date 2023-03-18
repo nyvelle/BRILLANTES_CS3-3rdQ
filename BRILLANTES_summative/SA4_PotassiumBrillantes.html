@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Car Deprecation Calculator</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+		<style>
+        	body {background: lightblue; 
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            span {color: maroon}
+        </style>
+	</head>
+
+	<body>
+		<h1> Car Depreciation Calculator </h1>
+		<h2> Your Car Model: <span id="model"> </span></h2>
+		<h2> Car Cost: <span id="cost"> </span></h2>
+		<h2> Age of your Car: <span id="age"> </span></h2>
+		<h2> Good Condition?: <span id="condition"> </span></h2>
+		<h2> Your Car's Current Market Value <span id="currentvalue"> </span></h2>
+		
+		<button onclick="enterCar()"> Enter your Car information </button>
+		<script>
+						
+			//function enterCar() is for getting the user's input
+			function enterCar() {
+				carmodel = prompt("Enter Car Model");
+				carcost = prompt("Enter Cost of the Car");
+				carage = prompt("How old is your car?");
+				good = confirm("In Good Condition? Ok for Yes / Cancel for No");
+				
+				model.innerHTML = carmodel;
+				cost.innerHTML = carcost;
+				age.innerHTML = carage;
+				condition.innerHTML = (good) ? "Yes" : "No";  
+				computeMarketValue(parseFloat(carcost), parseFloat(carage), good);
+			}
+			
+			// function computeMarketValue(carCost, carAge, goodCondition) is for computing the cmv value
+			function computeMarketValue(carCost, carAge, goodCondition) {
+				let cmv;
+				
+				if (carAge > 10) {
+					cmv = 70000.00;
+				} else if (carAge >= 8) {
+					cmv = 100000.00;
+				} else if (carAge >= 5) {
+					cmv = carCost * 0.75;
+				} else {
+					cmv = carCost * 0.5;
+				}
+				//if it is not in goodCondition, the cmv value will be less 10% more from the computed cmv
+				if (!goodCondition) {
+					cmv = cmv * 1.1; 
+				}
+				
+				document.getElementById("currentvalue").innerHTML = cmv.toFixed(2);
+			}
+		</script>
+	</body>
+</html>
+
